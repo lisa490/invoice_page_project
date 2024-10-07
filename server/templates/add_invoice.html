@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Add Invoice</title>
+   </head>
+   <body>
+      <h3>Invoice form</h3>
+      <form action="/invoices" method="POST">
+         <label>Amount</label>
+         <input type="number" name="amount" placeholder="amount...">
+         <label>Currency</label>
+         <input type="text" name= "currency" placeholder="currency...">
+         <label>Company Name</label>
+         <input type="text" name="company_name" placeholder="company name...">
+          <label>Due Date</label>
+         <input type="date" name="due_date" placeholder="dd/mm/yyyy">
+          <label>Status</label>
+         <input type="text" name="status" placeholder="paid or unpaid">
+          <label>URL</label>
+         <input type="text" name="url" placeholder="url...">
+         <button type="submit">Add</button>
+      </form>
+   </body>
+</html>

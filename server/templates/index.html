@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Index Page</title>
+   </head>
+   <body>
+      <h3>Invoices</h3>
+      <a href="/invoices">ADD</a>
+      <br>
+      <table border="1">
+         <thead>
+            <th>Id</th>
+            <th>Amount</th>
+            <th>Currency</th>
+            <th>Company name</th>
+            <th>Due date</th>
+            <th>Status</th>
+            <th>URL</th>
+            <th>#</th>
+         </thead>
+         {% for data in invoices.items %}
+         <tbody>
+            <td>{{data.id}}</td>
+            <td>{{data.amount}}</td>
+            <td>{{data.currency}}</td>
+            <td>{{data.company_name}}</td>
+            <td>{{data.due_date}}</td>
+            <td>{{data.status}}</td>
+            <td>{{data.url}}</td>
+            <td>
+               <form action="/invoices/{{data.id}}" method="POST" style="display:inline;">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <button type="submit">Delete</button>
+               </form>
+            </td>
+         </tbody>
+         {% endfor%}
+      </table>
+      <br>
+      <div>
+         {% if invoices.has_prev %}
+            <a href="/?page={{ invoices.prev_num }}" class="btn">Previous</a>
+         {% endif %}
+         {% if invoices.has_next %}
+            <a href="/?page={{ invoices.next_num }}" class="btn">Next</a>
+         {% endif %}
+      </div>
+   </body>
+</html>
+
